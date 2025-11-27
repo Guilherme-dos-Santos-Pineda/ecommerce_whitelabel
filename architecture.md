@@ -1,7 +1,7 @@
 
 ### **3. Documentação da Arquitetura**
 
-**Crie `docs/architecture.md`:**
+
 ```markdown
 # Arquitetura do Sistema
 
@@ -54,4 +54,5 @@ Sistema de e-commerce whitelabel com frontend em Flutter e backend em NestJS.
 ### Por que SQLite?
 - Simplicidade para desenvolvimento
 - Zero configuração
+
 - Fácil deploy
