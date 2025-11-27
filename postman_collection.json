@@ -1,0 +1,362 @@
+{
+  "info": {
+    "name": "E-commerce Whitelabel API",
+    "description": "API para sistema de e-commerce com múltiplos clientes",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🔐 Authentication",
+      "description": "Endpoints de autenticação e gerenciamento de usuários",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@devnology.com\",\n  \"password\": \"devnology123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Novo Usuário\",\n  \"email\": \"novo@email.com\",\n  \"password\": \"senha123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "logout"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nome Atualizado\",\n  \"email\": \"novoemail@exemplo.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/profile",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "profile"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/account",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "account"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "🏢 Clients",
+      "description": "Endpoints para gerenciamento de clientes whitelabel",
+      "item": [
+        {
+          "name": "Get Client by Domain",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/clients/domain/devnology.com",
+              "host": ["{{base_url}}"],
+              "path": ["clients", "domain", "devnology.com"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "📦 Products",
+      "description": "Endpoints para gerenciamento de produtos",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products",
+              "host": ["{{base_url}}"],
+              "path": ["products"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/1",
+              "host": ["{{base_url}}"],
+              "path": ["products", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain", 
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products?search=shirt",
+              "host": ["{{base_url}}"],
+              "path": ["products"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "shirt"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by Category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/category/eletronicos",
+              "host": ["{{base_url}}"],
+              "path": ["products", "category", "eletronicos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by Provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/provider/brazilian",
+              "host": ["{{base_url}}"],
+              "path": ["products", "provider", "brazilian"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/categories",
+              "host": ["{{base_url}}"],
+              "path": ["products", "categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Products Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/stats",
+              "host": ["{{base_url}}"],
+              "path": ["products", "stats"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Advanced Filtering",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-client-domain",
+                "value": "devnology.com"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products?search=shirt&category=clothing&provider=brazilian&minPrice=50&maxPrice=200",
+              "host": ["{{base_url}}"],
+              "path": ["products"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "shirt"
+                },
+                {
+                  "key": "category",
+                  "value": "clothing"
+                },
+                {
+                  "key": "provider",
+                  "value": "brazilian"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "50"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "200"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "description": "URL base da API"
+    },
+    {
+      "key": "token",
+      "value": "seu_jwt_token_aqui",
+      "description": "Token JWT para autenticação (obtido no login)"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "console.log('Iniciando requisição para: ' + pm.request.url);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Status code is 200\", function () {",
+          "    pm.response.to.have.status(200);",
+          "});",
+          "",
+          "// Salvar token automaticamente no login",
+          "if (pm.response.code === 200 && pm.request.url.toString().includes('/auth/login')) {",
+          "    var jsonData = pm.response.json();",
+          "    if (jsonData.token) {",
+          "        pm.collectionVariables.set(\"token\", jsonData.token);",
+          "        console.log(\"Token salvo: \" + jsonData.token);",
+          "    }",
+          "}"
+        ]
+      }
+    }
+  ]
+}
