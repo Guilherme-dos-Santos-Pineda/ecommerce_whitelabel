@@ -18,4 +18,4 @@ Caso o navegador bloqueie o hostname local, use:
 
 flutter run -d web-server --web-port 8000 --web-hostname 0.0.0.0
 
-OBS: Deixei o codigo da API em .rar para dificultar o acesso por questões de segurança, abri o repositorio na data limite para o recrutador ter acessp, só é necessario baixar e rodar tudo localmente no seu computador
+OBS: Deixei o codigo da API em .rar para dificultar o acesso por questão de segurança, abri o repositorio na data limite para o recrutador ter acesso, só é necessario baixar e rodar tudo localmente no seu computador
